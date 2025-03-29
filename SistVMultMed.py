@@ -112,6 +112,11 @@ def main():
                 tipo=input("Ingrese el tipo de mascota (felino o canino): ")
                 peso=int(input("Ingrese el peso de la mascota: "))
                 fecha=input("Ingrese la fecha de ingreso (dia/mes/año): ")
+                try:
+                    fechadata=datatime.strptime(fecha,"%d/%m/%Y")
+                    fecha_formato=fechadata.strftime("%d/%m/%Y")
+                except:
+                    print("Formato de fecha incorrecto")
                 nm=int(input("Ingrese cantidad de medicamentos: "))
                 lista_med=[]
 
