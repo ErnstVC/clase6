@@ -1,3 +1,4 @@
+from datatime import datatime 
 class Medicamento:
     def __init__(self):
         self.__nombre = "" 
