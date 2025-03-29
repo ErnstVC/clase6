@@ -95,6 +95,17 @@ class sistemaV:
                 self.__mascotas[i].remove(masc)
                 return True 
         return False 
+    def eliminarMed(self, historia,nombre_medicamentos):
+        for i in ["canino","felino"]:
+            for masc in self.__mascotas[i]:
+               if historia == masc.verHistoria():
+                lista_medicamentos=verLista_Medicamentos()
+                if med.verNombre()==nombre_medicameto:
+                    lista_medicamentos.remove(med)
+                  
+                self.__mascotas[i].remove(masc)
+                return True 
+        return False 
 
 def main():
     servicio_hospitalario = sistemaV()
