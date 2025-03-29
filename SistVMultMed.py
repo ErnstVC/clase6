@@ -123,6 +123,8 @@ def main():
                 for i in range(0,nm):
                     nombre_medicamentos = input("Ingrese el nombre del medicamento: ")
                     dosis =int(input("Ingrese la dosis: "))
+                    any(med.vernombre()==nombre_medicamentos for i in lista_med):
+                    print("Ingrese solo una vez el medicamento")
                     medicamento = Medicamento()
                     medicamento.asignarNombre(nombre_medicamentos)
                     medicamento.asignarDosis(dosis)
