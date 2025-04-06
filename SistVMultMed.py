@@ -83,7 +83,7 @@ class sistemaV:
 
     def verMedicamento(self,historia):
         #busco la mascota y devuelvo el atributo solicitado
-        for masc in self.__mascotas["canino"]+self__mascotas["felino"]:
+        for masc in self.__mascotas["canino"]+self.__mascotas["felino"]:
             if historia == masc.verHistoria():
                 return masc.verLista_Medicamentos() 
         return None
@@ -101,7 +101,7 @@ class sistemaV:
                if historia == masc.verHistoria():
                 lista_medicamentos=masc.verLista_Medicamentos()
                 for med in lista_medicamentos:
-                    if med.verNombre()==nombre_medicametos:
+                    if med.verNombre()==nombre_medicamentos:
                         lista_medicamentos.remove(med)
                   
                
@@ -132,9 +132,10 @@ def main():
                 peso=int(input("Ingrese el peso de la mascota: "))
                 fecha=input("Ingrese la fecha de ingreso (dia/mes/año): ")
                 try:
-                    fechadata=datetime.strptime(fecha,"%d/%m/%Y").strftime
+                    datetime.strptime(fecha, "%d/%m/%Y")
                 except:
                     print("Formato de fecha incorrecto")
+                    continue
                 nm=int(input("Ingrese cantidad de medicamentos: "))
                 lista_med=[]
 
@@ -143,6 +144,7 @@ def main():
                     dosis =int(input("Ingrese la dosis: "))
                     if any(med.verNombre()==nombre_medicamentos for med in lista_med):
                         print("Ingrese solo una vez el medicamento")
+                    else:
                         medicamento = Medicamento()
                         medicamento.asignarNombre(nombre_medicamentos)
                         medicamento.asignarDosis(dosis)
@@ -180,14 +182,15 @@ def main():
                 print("Los medicamentos suministrados son: ")
                 for m in medicamento:   
                     print(f"\n- {m.verNombre()}")
-                    pregunta=input("""¿Desea eliminar algun medicamento?
+                pregunta=input("""¿Desea eliminar algun medicamento?
                     1.Si
                     2.No""")
-                    if pregunta=="1":
-                        medeliminar=input("ingrese el nombre del medicamento")
-                        resultado_operacion = servicio_hospitalario.eliminarMed(q,medeliminar) 
-                        if resultado_operacion == True:
-                         print("Medicamento  eliminado del sistema con exito")
+                if pregunta=="1":
+                    medeliminar=input("ingrese el nombre del medicamento")
+                    resultado_operacion = servicio_hospitalario.eliminarMed(q,medeliminar) 
+                    if resultado_operacion == True:
+                        print("Medicamento  eliminado del sistema con exito")
+                        
                        
                           
         
